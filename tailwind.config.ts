@@ -35,6 +35,10 @@ const config: Config = {
                         transform: "translate3d(0, -100%, 0)",
                     },
                 },
+      },
+      animation:{
+        slideinright: 'slide-in-right 1s ease-in-out 0.25s 1',
+        slideoutup: 'slide-out-up 1s ease-in-out 0.25s 1',
       }
     },
   },
