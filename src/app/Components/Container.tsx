@@ -1,9 +1,9 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
-export const Container = (children:ReactNode) => {
-  return (
-    <div>
-        {children}
-    </div>
-  )
-}
+interface ContainerProps {
+    children: ReactNode;
+  }
+  
+  export const Container: React.FC<ContainerProps> = ({ children }) => {
+    return <div className="py-3 px-6">{children}</div>;
+  };
