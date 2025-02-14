@@ -1,5 +1,11 @@
+import { Header } from "./Components/Header";
+import { Navbar } from "./Components/Navbar";
+
 export default function Home() {
   return (
-    <h1>Hello World</h1>
+    <>
+    <Navbar/>
+    <Header title="Recent blog posts"/>
+    </>
   );
 }
