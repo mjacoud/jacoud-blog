@@ -23,10 +23,10 @@ export const Navbar = () => {
 
 
   return (
-    <nav className="p-8 bg-blue-400 flex justify-between items-center">
-      <div>
-        <h1 className="font-inter font-bold text-3xl text-white">Jacoud</h1>
-      </div>
+    <nav className="p-8 shadow flex justify-between items-center">
+      <Link href={'/'}>
+        <h1 className="font-inter font-bold text-4xl text-black">Jacoud</h1>
+      </Link>
       <div>
         {menuOpen || animate?
           <div className={`bg-black w-full h-full absolute right-0 top-0 transition duration-1250 ${animate ? (menuOpen ? 'animate-slideinright bg-transparent' : 'animate-slideoutup') : ''}`}>
@@ -53,9 +53,9 @@ export const Navbar = () => {
 
           <svg onClick={handleMenu}
             width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path className="stroke-white" d="M4 18L20 18" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-            <path className="stroke-white" d="M4 12L20 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-            <path className="stroke-white" d="M4 6L20 6" stroke="pink" strokeWidth="2" strokeLinecap="round" />
+            <path className="stroke-black" d="M4 18L20 18" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+            <path className="stroke-black" d="M4 12L20 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+            <path className="stroke-black" d="M4 6L20 6" stroke="pink" strokeWidth="2" strokeLinecap="round" />
           </svg>
       </div>
     </nav>
