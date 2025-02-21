@@ -1,4 +1,6 @@
 import Image, { StaticImageData } from "next/image";
+import arrowUp from '../assets/icons/arrow-up-right.png'
+import Link from "next/link";
 
 interface PostProps {
     title: string;
@@ -32,11 +34,16 @@ export const Post:React.FC<PostProps> = ({title,content,date,imgsrc,tags}:PostPr
 
   return (
     <div>
-      <Image src={imgsrc} alt="post image" width={500} height={300} className="pb-10"/>
-      <div className="font-inter font-semibold text-dateColor">{formatedDate(date)}</div>
-      <h2 className="py-4 text-3xl font-inter font-semibold">{title}</h2>
-      <p className="pb-6 font-inter text-gray-400">{content}</p>
-      <div className="flex flex-wrap gap-2 pb-10">
+        <Link href={`/${title}`}>
+          <Image src={imgsrc} alt="post image" width={500} height={300} className="pb-10"/>
+                <div className="font-inter font-semibold text-strongPurple text-sm ">{formatedDate(date)}</div>
+                <div className="flex justify-between align-bottom">
+                <h2 className="py-4 text-3xl font-inter font-semibold">{title}</h2>
+          <Image src={arrowUp} alt="arrow-up" width={40} height={68}/>
+                </div>
+                <p className="pb-6 font-inter text-gray-400">{content}</p>
+        </Link>
+                <div className="flex flex-wrap gap-2 pb-10">
         {tags.map(tag=>
         <span key={tag} className={`px-2 py-1 rounded-full text-sm font-medium ${tagColors[tag] || 'bg-gray-200 text-gray-600'}`}>
         {tag}
