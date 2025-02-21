@@ -27,15 +27,15 @@ function onSubmit(values: z.infer<typeof formSchema>) {
 
     return(
         <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 py-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-                <div className="flex gap-6">
+                <div className="flex gap-6 flex-col">
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input className="text-center" placeholder="Enter your email" {...field} />
               </FormControl>
               <Button type="submit" className="bg-[#7F56D9]">Subscribe</Button>
                 </div>
