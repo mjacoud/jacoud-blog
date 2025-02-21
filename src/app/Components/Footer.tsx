@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
     return (
-        <footer >
+        <footer className='pb-6'>
             <div className='border-t-2 border-gray-200 mt-6 flex flex-col items-center'>
                 <nav>
                     <ul className="flex flex-col items-center gap-2 py-8">
