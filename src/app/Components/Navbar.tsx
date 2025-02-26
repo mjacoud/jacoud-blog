@@ -2,6 +2,10 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import {ThemeSwitch } from "./Switch"
+import Image from "next/image"
+import sun from '../assets/icons/sun.png'
+import moon from '../assets/icons/moon.png'
 
 const menuOptions = ["Blog", "Projects", "About"]
 
@@ -11,31 +15,33 @@ export const Navbar = () => {
 
   const handleMenu = () => {
     setAnimate(true)
-    console.log('animate: ', animate)
     setMenuOpen(!menuOpen)
-    console.log('menuOpen: ', menuOpen)
-    console.log('animate: ', animate)
     setTimeout(() => {setAnimate(false)
-      console.log('animate: ', animate)
+
     }
-    , 1225) // Duration of the animation (1000ms)
+    , 1225) 
   }
 
 
   return (
-    <nav className="p-8 shadow flex justify-between items-center">
+    <nav className="p-8 shadow dark:shadow-white flex justify-between items-center">
       <Link href={'/'}>
-        <h1 className="font-inter font-bold text-4xl text-black">Jacoud</h1>
+        <h1 className="font-inter font-bold text-4xl text-black dark:text-white">Jacoud</h1>
       </Link>
       <div>
         {menuOpen || animate?
-          <div className={`bg-black w-full h-full absolute right-0 top-0 transition duration-1250 ${animate ? (menuOpen ? 'animate-slideinright bg-transparent' : 'animate-slideoutup') : ''}`}>
+          <div className={`bg-white dark:bg-black w-full h-full absolute right-0 top-0 transition duration-1250 ${animate ? (menuOpen ? 'animate-slideinright bg-transparent' : 'animate-slideoutup') : ''}`}>
             <div className="flex flex-col">
               <div className="flex items-center justify-center flex-col gap-16 pt-48">
                 {menuOptions.map(option =>
-                  <Link href={option.toLowerCase()} key={option} className={`text-5xl ${animate ? (menuOpen ? 'text-transparent' : 'text-white') : 'text-white'} `}>{option}</Link>
+                  <Link href={option.toLowerCase()} key={option} className={`text-5xl ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option}</Link>
                 )}
-              </div>
+                <div className="flex gap-4">{
+                <Image src={sun} width={50}  height={50} alt="sun" />}
+                  <ThemeSwitch />
+                  <Image src={moon} width={45}  height={50} alt="sun" />
+                </div>
+                </div>
 
 
               <div className="flex justify-center pt-24">
@@ -53,9 +59,9 @@ export const Navbar = () => {
 
           <svg onClick={handleMenu}
             width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path className="stroke-black" d="M4 18L20 18" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-            <path className="stroke-black" d="M4 12L20 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-            <path className="stroke-black" d="M4 6L20 6" stroke="pink" strokeWidth="2" strokeLinecap="round" />
+            <path className="stroke-black dark:stroke-white" d="M4 18L20 18" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+            <path className="stroke-black dark:stroke-white" d="M4 12L20 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+            <path className="stroke-black dark:stroke-white" d="M4 6L20 6" stroke="pink" strokeWidth="2" strokeLinecap="round" />
           </svg>
       </div>
     </nav>
