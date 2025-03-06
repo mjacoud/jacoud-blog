@@ -52,8 +52,9 @@ const PaginationLink = ({
       buttonVariants({
         variant: isActive ? "purple" : "ghost",
         size,
+
       }),
-      className
+      "text-xl px-6" ,className
     )}
     {...props}
   />
@@ -67,7 +68,7 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn("gap-1 pl-2.5", className)}
+    className={cn("gap-1 pl-2.5 text-2xl p-8", className)}
     {...props}
   >
     <ChevronLeft className="h-4 w-4" />
@@ -83,7 +84,7 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn("gap-1 pr-2.5", className)}
+    className={cn("gap-1 pr-2.5 text-2xl p-8", className)}
     {...props}
   >
     <span>Next</span>
@@ -98,10 +99,10 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<"span">) => (
   <span
     aria-hidden
-    className={cn("flex h-9 w-9 items-center justify-center", className)}
+    className={cn("flex h-9 w-9 items-end justify-center", className)}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4" />
+    <MoreHorizontal className="h-8 w-8" />
     <span className="sr-only">More pages</span>
   </span>
 )
@@ -114,15 +115,12 @@ const PaginationMenu = () => {
       <PaginationItem>
         <PaginationPrevious href="#" />
       </PaginationItem>
-      <div className="flex">
+      <div className="flex p-3">
         <PaginationItem>
           <PaginationLink href="#">1</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationEllipsis />
@@ -132,9 +130,6 @@ const PaginationMenu = () => {
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">9</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">10</PaginationLink>
         </PaginationItem>
       </div>
     <PaginationItem>
