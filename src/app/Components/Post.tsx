@@ -38,7 +38,7 @@ export const Post:React.FC<PostProps> = ({title,content,date,imgsrc,tags}:PostPr
           <Image src={imgsrc} alt="post image" width={500} height={300} className="pb-10"/>
                 <div className="font-inter font-semibold text-strongPurple text-sm ">{formatedDate(date)}</div>
                 <div className="flex justify-between align-bottom">
-                <h2 className="py-4 text-3xl font-inter font-semibold">{title}</h2>
+                <h2 className="py-4 text-3xl font-inter font-semibold dark:text-weakPurple">{title}</h2>
           <Image src={arrowUp} alt="arrow-up" width={40} height={68}/>
                 </div>
                 <p className="pb-6 font-inter text-gray-400">{content}</p>
