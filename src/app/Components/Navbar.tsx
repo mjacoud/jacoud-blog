@@ -38,7 +38,7 @@ export const Navbar = () => {
                 {menuOptions.map(option =>
                   <Link href={option.toLowerCase()} key={option} className={`text-5xl transition animate-slideinright ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option}</Link>
                 )}
-                <div className={`flex gap-4 opacity-0 ${`${animate ? (menuOpen ? 'animate-fadein' : 'bg-white dark:bg-black opacity-100') : 'opacity-100'}`} }`}>
+                <div className={`flex gap-4 opacity-0 ${`${animate ? (menuOpen ? '' : 'bg-white dark:bg-black opacity-100') : 'opacity-100'}`} }`}>
                   
                   <Image src={sun} width={50}  height={50} alt="sun" />
                   <ThemeSwitch />
