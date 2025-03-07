@@ -1,11 +1,12 @@
 'use client'
 
 import Link from "next/link"
-import { useState } from "react"
+import {useState } from "react"
 import {ThemeSwitch } from "./Switch"
 import Image from "next/image"
 import sun from '../assets/icons/sun.png'
 import moon from '../assets/icons/moon.png'
+import { useWindowSize } from "../hooks/useWindowSize"
 
 const menuOptions = ["Blog", "Projects", "About"]
 
@@ -22,13 +23,14 @@ export const Navbar = () => {
     , 900) 
   }
 
+  const windowSize = useWindowSize()
 
   return (
-    <nav className="p-8 shadow dark:shadow-white flex justify-between items-center md:pl-16 md:p-12 lg:pl-28 ">
+    <nav className="p-8 shadow dark:shadow-white flex justify-between items-center md:pl-16 md:p-12 lg:pl-28 fixed bg-white dark:bg-black w-full z-50 xl:p-5 xl:px-28">
       <Link href={'/'}>
-        <h1 className="font-inter font-bold text-4xl text-black dark:text-white md:text-6xl md:pl-4 xl:text-8xl">Jacoud</h1>
+        <h1 className="font-inter font-bold text-4xl text-black dark:text-white md:text-6xl md:pl-4 xl:text-7xl">Jacoud</h1>
       </Link>
-      {screen.width <= 768 ?
+      {windowSize.width <= 768 ?
         <div >
         {menuOpen || animate?
           <div 
@@ -63,9 +65,9 @@ export const Navbar = () => {
           <div className="h-12 w-12 sm:h-16 sm:w-16">
             <svg onClick={handleMenu}
                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
-              <path className="stroke-black dark:stroke-white" d="M4 18L20 18" stroke="#000000" strokeWidth={`${screen.width >= 768 ? "3": "2"}`} strokeLinecap="round"  />
-              <path className="stroke-black dark:stroke-white" d="M4 12L20 12" stroke="#000000" strokeWidth={`${screen.width >= 768 ? "3": "2"}`} strokeLinecap="round" />
-              <path className="stroke-black dark:stroke-white" d="M4 6L20 6" stroke="pink" strokeWidth={`${screen.width >= 768 ? "3": "2"}`} strokeLinecap="round" />
+              <path className="stroke-black dark:stroke-white" d="M4 18L20 18" stroke="#000000" strokeWidth={`${windowSize.width >= 768 ? "3": "2"}`} strokeLinecap="round"  />
+              <path className="stroke-black dark:stroke-white" d="M4 12L20 12" stroke="#000000" strokeWidth={`${windowSize.width >= 768 ? "3": "2"}`} strokeLinecap="round" />
+              <path className="stroke-black dark:stroke-white" d="M4 6L20 6" stroke="pink" strokeWidth={`${windowSize.width >= 768 ? "3": "2"}`} strokeLinecap="round" />
             </svg>
           </div>
       </div>
