@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from 'next-themes'
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -29,12 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      
       <body
         className={`${inter.variable} ${robotoBold.variable} ${robotoRegular.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class">
+          {children}
+        </ThemeProvider>
       </body>
+
     </html>
   );
 }
