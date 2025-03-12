@@ -8,20 +8,39 @@ import sun from '../assets/icons/sun.png'
 import moon from '../assets/icons/moon.png'
 import { useWindowSize } from "../hooks/useWindowSize"
 
-const menuOptions = ["Blog", "Projects", "About"]
+interface menuOptionsProps{
+  title:string
+  url:string
+}
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const [animate, setAnimate] = useState<boolean>(false)
-
+  
   const handleMenu = () => {
     setAnimate(true)
     setMenuOpen(!menuOpen)
     setTimeout(() => {setAnimate(false)
-
+      
     }
     , 900) 
   }
+  
+  const menuOptions:menuOptionsProps[] = [
+    {
+      'title':"Home",
+      'url':'/'
+    }, 
+    {
+      'title':"Projets",
+      'url':'/projects'
+    }, 
+    
+    {
+      'title':"About",
+      'url':'/about'
+    }
+   ]
 
   const windowSize = useWindowSize()
 
@@ -38,7 +57,7 @@ export const Navbar = () => {
             <div className="flex flex-col">
               <div className="flex items-center justify-center flex-col gap-16 pt-48">
                 {menuOptions.map(option =>
-                  <Link href={option.toLowerCase()} key={option} className={`text-5xl transition animate-slideinright ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option}</Link>
+                  <Link href={option.url} key={option.title} className={`text-5xl transition animate-slideinright ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option.title}</Link>
                 )}
                 <div className={`flex gap-4 opacity-0 ${`${animate ? (menuOpen ? '' : 'bg-white dark:bg-black opacity-100') : 'opacity-100'}`} }`}>
                   
@@ -74,7 +93,7 @@ export const Navbar = () => {
      :
      <div className="flex gap-8 lg:gap-12 items-center">
        {menuOptions.map(option =>
-        <Link href={option.toLowerCase()} key={option} className={`text-3xl lg:text-3xl xl:text-5xl transition animate-slideinright ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option}</Link>
+        <Link href={option.url} key={option.title} className={`text-3xl lg:text-3xl xl:text-5xl transition animate-slideinright ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option.title}</Link>
            )}
            <ThemeSwitch />
      </div>
