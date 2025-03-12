@@ -4,6 +4,7 @@ import { Container } from '../Components/Container'
 import { Navbar } from '../Components/Navbar'
 import { SubscribeForm } from '../Components/SubscribeForm'
 import { Footer } from '../Components/Footer'
+import { Header } from '../Components/Header'
 
 export default async function Page ({params}: {params: Promise<{ title: string }>}){
   
@@ -16,7 +17,7 @@ const tagColors: { [key: string]: string } = {
     <Container>
       <div className='pt-10'>
         <h4 className='text-strongPurple  font-inter font-semibold text-sm '>Sunday, 1 jan 2025</h4>
-        <h2 className='font-inter font-bold text-3xl py-5'>Grid system for better design user interface</h2>
+        <Header title='Grid system for better design user interface'/>
         <div className='whitespace-pre-line'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet maxime deleniti aliquam eaque tenetur labore, aut, ut sit repellendus eveniet eum nihil quisquam earum blanditiis quas temporibus repudiandae, dignissimos dolore.
         Saepe animi assumenda eos quae doloribus dolores delectus excepturi neque a cupiditate! Quam, possimus accusamus, aliquam sed similique excepturi, dolorum cupiditate amet reprehenderit ad quo quas dolore repellendus tempora molestias.
         
