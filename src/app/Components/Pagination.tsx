@@ -21,7 +21,7 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex items-center gap-1 flex-wrap justify-center", className)}
+    className={cn("flex items-center gap-1 flex-wrap md:flex-nowrap justify-center", className)}
     {...props}
   />
 ))
@@ -54,7 +54,7 @@ const PaginationLink = ({
         size,
 
       }),
-      "text-xl px-6" ,className
+      "text-md m-1 border-mediumPurple bg-purple-300 text-black xs:text-xl xl:p-7 xl:text-2xl" ,className
     )}
     {...props}
   />
@@ -68,7 +68,7 @@ const PaginationPrevious = ({
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn("gap-1 pl-2.5 text-2xl p-8", className)}
+    className={cn("gap-1 pl-2.5 text-base h-10 w-32", className)}
     {...props}
   >
     <ChevronLeft className="h-4 w-4" />
@@ -84,7 +84,7 @@ const PaginationNext = ({
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    className={cn("gap-1 pr-2.5 text-2xl p-8", className)}
+    className={cn("gap-1 pr-2.5 text-base p-4  h-10 w-32", className)}
     {...props}
   >
     <span>Next</span>
@@ -99,7 +99,7 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<"span">) => (
   <span
     aria-hidden
-    className={cn("flex h-9 w-9 items-end justify-center", className)}
+    className={cn("flex h-9 w-9 items-end pt-12 mx-1 md:mx-4", className)}
     {...props}
   >
     <MoreHorizontal className="h-8 w-8" />
@@ -112,27 +112,39 @@ const PaginationMenu = () => {
   return (
   <Pagination>
   <PaginationContent>
-      <PaginationItem>
+      <PaginationItem className="lg:mr-8">
         <PaginationPrevious href="#" />
       </PaginationItem>
-      <div className="flex p-3">
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">8</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">9</PaginationLink>
-        </PaginationItem>
+      <div className="flex align-center py-5">
+        <div className="flex xxs:gap-2 md:gap-2">
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">2</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">3</PaginationLink>
+          </PaginationItem>
+        </div>
+        <div className="flex">
+          <PaginationItem>
+            <PaginationEllipsis  />
+          </PaginationItem>
+        </div>
+        <div className="flex xxs:gap-2 ">
+          <PaginationItem>
+            <PaginationLink href="#">8</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">9</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">10</PaginationLink>
+          </PaginationItem>
+        </div>
       </div>
-    <PaginationItem>
+    <PaginationItem className="lg:ml-8">
       <PaginationNext href="#" />
     </PaginationItem>
   </PaginationContent>
