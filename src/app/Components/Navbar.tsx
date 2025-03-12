@@ -26,7 +26,7 @@ export const Navbar = () => {
   const windowSize = useWindowSize()
 
   return (
-    <nav className="p-8 shadow dark:shadow-white flex justify-between items-center md:pl-16 md:p-4 lg:pl-28 fixed bg-white dark:bg-black w-full z-50 xl:p-5 xl:px-28">
+    <nav className="p-4 shadow dark:shadow-white flex justify-between items-center md:pl-16 md:p-4 lg:pl-28 fixed bg-white dark:bg-black w-full z-50 xl:p-5 xl:px-28">
       <Link href={'/'}>
         <h1 className="font-inter font-bold text-4xl text-black dark:text-white md:text-6xl md:pl-4 xl:text-7xl">Jacoud</h1>
       </Link>
