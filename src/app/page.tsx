@@ -41,7 +41,9 @@ export default function Home() {
     <Navbar/>
     <Container>      
       <Header title="Recent blog posts"/>
-        <Feed data={mockdata}/>
+        <Feed data={mockdata} type="recent"/>
+        <Header title="All blog posts"/>
+        <Feed data={mockdata} type="all"/>
       <PaginationMenu/>
       <Footer/>
     </Container>
