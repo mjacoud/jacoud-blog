@@ -38,9 +38,9 @@ export default function Page() {
    <>
     <Navbar/>
     <Container>      
-      <Header title="Project List"/>
+      <Header title="Project List" type="primary"/>
       <Feed type="recent" key='project' data={mockdata}/>
-      <Header title="All Projects"/>
+      <Header title="All Projects" type='secondary'/>
       <Feed type="All" key='project' data={mockdata}/>
       <Footer/>
     </Container>

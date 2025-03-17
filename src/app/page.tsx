@@ -40,9 +40,9 @@ export default function Home() {
    <>
     <Navbar/>
     <Container>      
-      <Header title="Recent blog posts"/>
+      <Header title="Recent blog posts" type="primary"/>
         <Feed data={mockdata} type="recent"/>
-        <Header title="All blog posts"/>
+        <Header title="All blog posts" type="secondary"/>
         <Feed data={mockdata} type="all"/>
       <PaginationMenu/>
       <Footer/>
