@@ -9,7 +9,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-center", className)}
+    className={cn("mx-auto flex w-full justify-center py-4", className)}
     {...props}
   />
 )
@@ -54,7 +54,7 @@ const PaginationLink = ({
         size,
 
       }),
-      "text-md m-1 border-mediumPurple bg-purple-300 text-black xs:text-xl xl:p-7 xl:text-2xl" ,className
+      "text-md m-1 border-mediumPurple bg-purple-300 text-black xs:text-xl xl:p-7 xl:text-2xl hover:text-white" ,className
     )}
     {...props}
   />
