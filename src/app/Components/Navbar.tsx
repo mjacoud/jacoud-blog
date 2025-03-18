@@ -32,7 +32,7 @@ export const Navbar = () => {
       'url':'/'
     }, 
     {
-      'title':"Projets",
+      'title':"Projects",
       'url':'/projects'
     }, 
     
@@ -95,7 +95,11 @@ export const Navbar = () => {
        {menuOptions.map(option =>
         <Link href={option.url} key={option.title} className={`text-3xl lg:text-3xl xl:text-5xl transition animate-slideinright ${animate ? (menuOpen ? 'text-transparent' : 'text-black dark:text-white') : 'text-black  dark:text-white'} `}>{option.title}</Link>
            )}
-           <ThemeSwitch />
+                   <div className="flex gap-4 items-center">
+                     <Image src={sun} width={30}  height={50} alt="sun" />
+                                       <ThemeSwitch />
+                    <Image src={moon} width={30}  height={50} alt="moon" />
+                   </div>
      </div>
       }
     </nav>
