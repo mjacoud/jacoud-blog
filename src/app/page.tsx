@@ -1,53 +1,32 @@
+'use client'
+
 import { Container } from "./Components/Container";
 import { Feed } from "./Components/Feed";
-import {Footer} from "./Components/Footer";
+import { Footer } from "./Components/Footer";
 import { Header } from "./Components/Header";
 import { Navbar } from "./Components/Navbar";
 import { PaginationMenu } from "./Components/Pagination";
-import image from './assets/Image.png'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-
-const mockdata = [
-  {
-    id: '1',
-    date: new Date(),
-    imgsrc: image,
-    title: 'Title 1',
-    content: 'Testing content with new feature called lorem ipsum testing content with new feature called lorem ipsum',
-    tags: ['Node', 'Typescript'],
-  },
-  {
-    id: '2',
-    date: new Date(),
-    imgsrc: image,
-    title: 'Title 2',
-    content: 'Testing content with new feature called lorem ipsum testing content with new feature called lorem ipsum',
-    tags: ['React', 'JavaScript'],
-  },
-  {
-    id: '3',
-    date: new Date(),
-    imgsrc: image,
-    title: 'Title 3',
-    content: 'Testing content with new feature called lorem ipsum testing content with new feature called lorem ipsum',
-    tags: ['CSS', 'HTML'],
-  },
-];
 
 
 export default function Home() {
+  const queryClient = new QueryClient()
+
   return (
-   <>
+    
+      <QueryClientProvider client={queryClient}>
     <Navbar/>
-    <Container>      
+    <Container>     
       <Header title="Recent blog posts" type="primary"/>
-        <Feed data={mockdata} type="recent"/>
+        <Feed type="recent"/>
         <Header title="All blog posts" type="secondary"/>
-        <Feed data={mockdata} type="all"/>
+        <Feed type="all"/>
       <PaginationMenu/>
       <Footer/>
     </Container>
-   </>
+      </QueryClientProvider>
+   
   );
 }
- 
+  
