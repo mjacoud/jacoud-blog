@@ -17,10 +17,11 @@ export const Post:React.FC<PostProps> = ({title,content,date,imgsrc,tags,type}:P
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     
-    const currentMonth = date.getMonth()
-    const day = date.getDate()
-    const currentWeekDay = date.getDay()
-    const year = date.getFullYear()
+    const dateObj = new Date(date)
+    const currentMonth = dateObj.getMonth()
+    const day = dateObj.getDate()
+    const currentWeekDay = dateObj.getDay()
+    const year = dateObj.getFullYear()
     return `${weekDays[currentWeekDay]}, ${day} ${months[currentMonth]} ${year}`
   }
   
